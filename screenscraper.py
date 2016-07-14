@@ -3,6 +3,31 @@ from urllib2 import urlopen as wget
 
 URL = "http://bulbapedia.bulbagarden.net"
 
+# def initDB():
+#     import sqlite3
+
+#     sqlite_file = 'pokebase.sqlite3'    # name of the sqlite database file
+
+#     # Connecting to the database file
+#     conn = sqlite3.connect(sqlite_file)
+#     c = conn.cursor()
+
+#     scripts = [
+#         "CREATE TABLE IF NOT EXISTS types (id TEXT PRIMARY KEY, type TEXT);",
+#         "CREATE TABLE IF NOT EXISTS regions (id TEXT PRIMARY KEY, region TEXT);",
+#         "CREATE TABLE IF NOT EXISTS pokemon( id TEXT PRIMARY KEY, name TEXT, category TEXT, natdex INTEGER, type TYPES, region REGIONS);",
+#         "SELECT name FROM sqlite_master WHERE type='table';",
+#     ]
+
+#     # Creating a new SQLite table with 1 column
+#     for script in scripts:
+#         c.execute(script)
+#     print(c.fetchall())
+
+#     # Committing changes and closing the connection to the database file
+#     conn.commit()
+#     conn.close()
+
 def populateList():
     '''first, we get the whole list of pokemon, sorted by national dex number.
     there is also a regional dex number, which i will preserve later.
@@ -43,7 +68,9 @@ def cullPokemonData(id):
     soup = bs(wget(path).read(), 'lxml')
 
 pokedex = populateList()
-cullPokemonData(pokedex[0])
+# cullPokemonData(pokedex[0])
+# initDB()
+
 
 # for pokemon in pokedex:
 #     cullPokemonData(pokemon)

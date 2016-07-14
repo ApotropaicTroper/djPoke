@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""pokedb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -13,14 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
-from mysite.views import *
 
 urlpatterns = [
-    url(r'^$', hello),                          # root
-    url(r'^admin/', include(admin.site.urls)),  # admin site
-    url(r'^hello/$', hello),                    # hello world
-    url(r'^time/$', current_datetime),          # current time (dynamic content)
-    url(r'^time/plus/(\d{1,2})/$', hours_ahead)    # current time plus some hour offset
+    url(r'^admin/', admin.site.urls),
 ]
