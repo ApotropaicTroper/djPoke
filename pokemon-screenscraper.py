@@ -10,7 +10,7 @@ cursor = db.cursor()
 def initDB():    
     scripts = [
         "DROP TABLE pokemon;",
-        "CREATE TABLE pokemon( id serial, name CHAR(30) PRIMARY KEY, category CHAR(50), natdex INTEGER, type CHAR(30), region CHAR(30));",
+        "CREATE TABLE pokemon( id serial, name CHAR(30) PRIMARY KEY, category CHAR(50), natdex CHAR(5), type CHAR(30));",
     ]
     
     for script in scripts:
@@ -60,11 +60,12 @@ def cullPokemonData(pokeTuple):
     soup = bs(page.read(), 'html.parser')
     table = soup.find('table', {'class':'roundy', 'style': 'float:right; text-align:center; width:33%; max-width:420px; min-width:360px; background: #78C850; border: 2px solid #682A68; padding:2px;'})
 
-    name     = ""
-    category = ""
-    natdex   = ""
-    _type    = ""
-    region   = ""
+    # at this point, I have the right table. need to parse out the following values:
+
+    name     = ""   # Bulbasaur
+    category = ""   # Seed Pokemon
+    natdex   = ""   # #001
+    _type    = ""   # Grass, Poison
 
     # script = "INSERT INTO pokemon(name, category, natdex, type, region) VALUES ()"
     # try:
