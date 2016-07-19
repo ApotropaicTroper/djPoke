@@ -61,8 +61,8 @@ def cullPokemonData(id):
     soup = bs(wget(path).read(), 'lxml')
 
 pokedex = populateList()
-# cullPokemonData(pokedex[0])
-# initDB()
+#cullPokemonData(pokedex[0])
+initDB()
 
 
 # for pokemon in pokedex:
