@@ -7,7 +7,8 @@ URL = "http://bulbapedia.bulbagarden.net"
 db = sql.connect("localhost","root","Metroid","pokedb" )
 cursor = db.cursor()
 
-def initDB():    
+def initDB():
+    """Initializes a fresh pokemon table in pokedb."""
     scripts = [
         "DROP TABLE pokemon;",
         "CREATE TABLE pokemon( id serial, name CHAR(30) PRIMARY KEY, category CHAR(50), natdex CHAR(5), type CHAR(30));",
@@ -18,8 +19,6 @@ def initDB():
         out = cursor.fetchone()
         if out:
             print out
-
-    return cursor
 
 def populateList():
     '''first, we get the whole list of pokemon, sorted by national dex number.
@@ -80,7 +79,7 @@ def cullPokemonData(pokeTuple):
 
 # ------ BEGIN ROUTINE -------
 sys.stdout.write("Initializing Database...")
-cursor = initDB()
+initDB()
 
 sys.stdout.write("done.\nGetting list of Pokemon (up to Gen6)...")
 pokedex = populateList()

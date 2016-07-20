@@ -12,7 +12,7 @@ Install them.
 Install it. It's necessary before you install mysql-python from pip.
 
 ## The Scraper Script
-Run it.
+Run it. Kind of the point of this whole thing. For now, anyway.
 
 ## Anything else?
 The script depends on MariaDB 10.14. Install that, and, since MariaDB is essentially a *fork* of MySQL, you can 
