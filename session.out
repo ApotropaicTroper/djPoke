@@ -1,0 +1,729 @@
+MariaDB [(none)]> use pokedb
+Database changed
+MariaDB [pokedb]> select * from pokemon order by natdex;
++-----+-------------+-----------------------+--------+------------------+
+| id  | name        | category              | natdex | type             |
++-----+-------------+-----------------------+--------+------------------+
+|   1 | Bulbasaur   | Seed Pok‚mon          | #001   | Grass Poison     |
+|   2 | Ivysaur     | Seed Pok‚mon          | #002   | Grass Poison     |
+|   3 | Venusaur    | Seed Pok‚mon          | #003   | Grass Poison     |
+|   4 | Charmander  | Lizard Pok‚mon        | #004   | Fire             |
+|   5 | Charmeleon  | Flame Pok‚mon         | #005   | Fire             |
+|   6 | Charizard   | Flame Pok‚mon         | #006   | Fire Flying      |
+|   7 | Squirtle    | Tiny Turtle Pok‚mon   | #007   | Water            |
+|   8 | Wartortle   | Turtle Pok‚mon        | #008   | Water            |
+|   9 | Blastoise   | Shellfish Pok‚mon     | #009   | Water            |
+|  10 | Caterpie    | Worm Pok‚mon          | #010   | Bug              |
+|  11 | Metapod     | Cocoon Pok‚mon        | #011   | Bug              |
+|  12 | Butterfree  | Butterfly Pok‚mon     | #012   | Bug Flying       |
+|  13 | Weedle      | Hairy Bug Pok‚mon     | #013   | Bug Poison       |
+|  14 | Kakuna      | Cocoon Pok‚mon        | #014   | Bug Poison       |
+|  15 | Beedrill    | Poison Bee Pok‚mon    | #015   | Bug Poison       |
+|  16 | Pidgey      | Tiny Bird Pok‚mon     | #016   | Normal Flying    |
+|  17 | Pidgeotto   | Bird Pok‚mon          | #017   | Normal Flying    |
+|  18 | Pidgeot     | Bird Pok‚mon          | #018   | Normal Flying    |
+|  19 | Rattata     | Mouse Pok‚mon         | #019   | Normal           |
+|  20 | Raticate    | Mouse Pok‚mon         | #020   | Normal           |
+|  21 | Spearow     | Tiny Bird Pok‚mon     | #021   | Normal Flying    |
+|  22 | Fearow      | Beak Pok‚mon          | #022   | Normal Flying    |
+|  23 | Ekans       | Snake Pok‚mon         | #023   | Poison           |
+|  24 | Arbok       | Cobra Pok‚mon         | #024   | Poison           |
+|  25 | Pikachu     | Mouse Pok‚mon         | #025   | Electric         |
+|  26 | Raichu      | Mouse Pok‚mon         | #026   | Electric         |
+|  27 | Sandshrew   | Mouse Pok‚mon         | #027   | Ground           |
+|  28 | Sandslash   | Mouse Pok‚mon         | #028   | Ground           |
+|  29 | Nidorina    | Poison Pin Pok‚mon    | #030   | Poison           |
+|  30 | Nidoqueen   | Drill Pok‚mon         | #031   | Poison Ground    |
+|  31 | Nidorino    | Poison Pin Pok‚mon    | #033   | Poison           |
+|  32 | Nidoking    | Drill Pok‚mon         | #034   | Poison Ground    |
+|  33 | Clefairy    | Fairy Pok‚mon         | #035   | Fairy            |
+|  34 | Clefable    | Fairy Pok‚mon         | #036   | Fairy            |
+|  35 | Vulpix      | Fox Pok‚mon           | #037   | Fire             |
+|  36 | Ninetales   | Fox Pok‚mon           | #038   | Fire             |
+|  37 | Jigglypuff  | Balloon Pok‚mon       | #039   | Normal Fairy     |
+|  38 | Wigglytuff  | Balloon Pok‚mon       | #040   | Normal Fairy     |
+|  39 | Zubat       | Bat Pok‚mon           | #041   | Poison Flying    |
+|  40 | Golbat      | Bat Pok‚mon           | #042   | Poison Flying    |
+|  41 | Oddish      | Weed Pok‚mon          | #043   | Grass Poison     |
+|  42 | Gloom       | Weed Pok‚mon          | #044   | Grass Poison     |
+|  43 | Vileplume   | Flower Pok‚mon        | #045   | Grass Poison     |
+|  44 | Paras       | Mushroom Pok‚mon      | #046   | Bug Grass        |
+|  45 | Parasect    | Mushroom Pok‚mon      | #047   | Bug Grass        |
+|  46 | Venonat     | Insect Pok‚mon        | #048   | Bug Poison       |
+|  47 | Venomoth    | Poison Moth Pok‚mon   | #049   | Bug Poison       |
+|  48 | Diglett     | Mole Pok‚mon          | #050   | Ground           |
+|  49 | Dugtrio     | Mole Pok‚mon          | #051   | Ground           |
+|  50 | Meowth      | Scratch Cat Pok‚mon   | #052   | Normal           |
+|  51 | Persian     | Classy Cat Pok‚mon    | #053   | Normal           |
+|  52 | Psyduck     | Duck Pok‚mon          | #054   | Water            |
+|  53 | Golduck     | Duck Pok‚mon          | #055   | Water            |
+|  54 | Mankey      | Pig Monkey Pok‚mon    | #056   | Fighting         |
+|  55 | Primeape    | Pig Monkey Pok‚mon    | #057   | Fighting         |
+|  56 | Growlithe   | Puppy Pok‚mon         | #058   | Fire             |
+|  57 | Arcanine    | Legendary Pok‚mon     | #059   | Fire             |
+|  58 | Poliwag     | Tadpole Pok‚mon       | #060   | Water            |
+|  59 | Poliwhirl   | Tadpole Pok‚mon       | #061   | Water            |
+|  60 | Poliwrath   | Tadpole Pok‚mon       | #062   | Water Fighting   |
+|  61 | Abra        | Psi Pok‚mon           | #063   | Psychic          |
+|  62 | Kadabra     | Psi Pok‚mon           | #064   | Psychic          |
+|  63 | Alakazam    | Psi Pok‚mon           | #065   | Psychic          |
+|  64 | Machop      | Superpower Pok‚mon    | #066   | Fighting         |
+|  65 | Machoke     | Superpower Pok‚mon    | #067   | Fighting         |
+|  66 | Machamp     | Superpower Pok‚mon    | #068   | Fighting         |
+|  67 | Bellsprout  | Flower Pok‚mon        | #069   | Grass Poison     |
+|  68 | Weepinbell  | Flycatcher Pok‚mon    | #070   | Grass Poison     |
+|  69 | Victreebel  | Flycatcher Pok‚mon    | #071   | Grass Poison     |
+|  70 | Tentacool   | Jellyfish Pok‚mon     | #072   | Water Poison     |
+|  71 | Tentacruel  | Jellyfish Pok‚mon     | #073   | Water Poison     |
+|  72 | Geodude     | Rock Pok‚mon          | #074   | Rock Ground      |
+|  73 | Graveler    | Rock Pok‚mon          | #075   | Rock Ground      |
+|  74 | Golem       | Megaton Pok‚mon       | #076   | Rock Ground      |
+|  75 | Ponyta      | Fire Horse Pok‚mon    | #077   | Fire             |
+|  76 | Rapidash    | Fire Horse Pok‚mon    | #078   | Fire             |
+|  77 | Slowpoke    | Dopey Pok‚mon         | #079   | Water Psychic    |
+|  78 | Slowbro     | Hermit Crab Pok‚mon   | #080   | Water Psychic    |
+|  79 | Magnemite   | Magnet Pok‚mon        | #081   | Electric Steel   |
+|  80 | Magneton    | Magnet Pok‚mon        | #082   | Electric Steel   |
+|  81 | Farfetch'd  | Wild Duck Pok‚mon     | #083   | Normal Flying    |
+|  82 | Doduo       | Twin Bird Pok‚mon     | #084   | Normal Flying    |
+|  83 | Dodrio      | Triple Bird Pok‚mon   | #085   | Normal Flying    |
+|  84 | Seel        | Sea Lion Pok‚mon      | #086   | Water            |
+|  85 | Dewgong     | Sea Lion Pok‚mon      | #087   | Water Ice        |
+|  86 | Grimer      | Sludge Pok‚mon        | #088   | Poison           |
+|  87 | Muk         | Sludge Pok‚mon        | #089   | Poison           |
+|  88 | Shellder    | Bivalve Pok‚mon       | #090   | Water            |
+|  89 | Cloyster    | Bivalve Pok‚mon       | #091   | Water Ice        |
+|  90 | Gastly      | Gas Pok‚mon           | #092   | Ghost Poison     |
+|  91 | Haunter     | Gas Pok‚mon           | #093   | Ghost Poison     |
+|  92 | Gengar      | Shadow Pok‚mon        | #094   | Ghost Poison     |
+|  93 | Onix        | Rock Snake Pok‚mon    | #095   | Rock Ground      |
+|  94 | Drowzee     | Hypnosis Pok‚mon      | #096   | Psychic          |
+|  95 | Hypno       | Hypnosis Pok‚mon      | #097   | Psychic          |
+|  96 | Krabby      | River Crab Pok‚mon    | #098   | Water            |
+|  97 | Kingler     | Pincer Pok‚mon        | #099   | Water            |
+|  98 | Voltorb     | Ball Pok‚mon          | #100   | Electric         |
+|  99 | Electrode   | Ball Pok‚mon          | #101   | Electric         |
+| 100 | Exeggcute   | Egg Pok‚mon           | #102   | Grass Psychic    |
+| 101 | Exeggutor   | Coconut Pok‚mon       | #103   | Grass Psychic    |
+| 102 | Cubone      | Lonely Pok‚mon        | #104   | Ground           |
+| 103 | Marowak     | Bone Keeper Pok‚mon   | #105   | Ground           |
+| 104 | Hitmonlee   | Kicking Pok‚mon       | #106   | Fighting         |
+| 105 | Hitmonchan  | Punching Pok‚mon      | #107   | Fighting         |
+| 106 | Lickitung   | Licking Pok‚mon       | #108   | Normal           |
+| 107 | Koffing     | Poison Gas Pok‚mon    | #109   | Poison           |
+| 108 | Weezing     | Poison Gas Pok‚mon    | #110   | Poison           |
+| 109 | Rhyhorn     | Spikes Pok‚mon        | #111   | Ground Rock      |
+| 110 | Rhydon      | Drill Pok‚mon         | #112   | Ground Rock      |
+| 111 | Chansey     | Egg Pok‚mon           | #113   | Normal           |
+| 112 | Tangela     | Vine Pok‚mon          | #114   | Grass            |
+| 113 | Kangaskhan  | Parent Pok‚mon        | #115   | Normal           |
+| 114 | Horsea      | Dragon Pok‚mon        | #116   | Water            |
+| 115 | Seadra      | Dragon Pok‚mon        | #117   | Water            |
+| 116 | Goldeen     | Goldfish Pok‚mon      | #118   | Water            |
+| 117 | Seaking     | Goldfish Pok‚mon      | #119   | Water            |
+| 118 | Staryu      | Star Shape Pok‚mon    | #120   | Water            |
+| 119 | Starmie     | Mysterious Pok‚mon    | #121   | Water Psychic    |
+| 120 | Mr. Mime    | Barrier Pok‚mon       | #122   | Psychic Fairy    |
+| 121 | Scyther     | Mantis Pok‚mon        | #123   | Bug Flying       |
+| 122 | Jynx        | Human Shape Pok‚mon   | #124   | Ice Psychic      |
+| 123 | Electabuzz  | Electric Pok‚mon      | #125   | Electric         |
+| 124 | Magmar      | Spitfire Pok‚mon      | #126   | Fire             |
+| 125 | Pinsir      | Stag Beetle Pok‚mon   | #127   | Bug              |
+| 126 | Tauros      | Wild Bull Pok‚mon     | #128   | Normal           |
+| 127 | Magikarp    | Fish Pok‚mon          | #129   | Water            |
+| 128 | Gyarados    | Atrocious Pok‚mon     | #130   | Water Flying     |
+| 129 | Lapras      | Transport Pok‚mon     | #131   | Water Ice        |
+| 130 | Ditto       | Transform Pok‚mon     | #132   | Normal           |
+| 131 | Eevee       | Evolution Pok‚mon     | #133   | Normal           |
+| 132 | Vaporeon    | Bubble Jet Pok‚mon    | #134   | Water            |
+| 133 | Jolteon     | Lightning Pok‚mon     | #135   | Electric         |
+| 134 | Flareon     | Flame Pok‚mon         | #136   | Fire             |
+| 135 | Porygon     | Virtual Pok‚mon       | #137   | Normal           |
+| 136 | Omanyte     | Spiral Pok‚mon        | #138   | Rock Water       |
+| 137 | Omastar     | Spiral Pok‚mon        | #139   | Rock Water       |
+| 138 | Kabuto      | Shellfish Pok‚mon     | #140   | Rock Water       |
+| 139 | Kabutops    | Shellfish Pok‚mon     | #141   | Rock Water       |
+| 140 | Aerodactyl  | Fossil Pok‚mon        | #142   | Rock Flying      |
+| 141 | Snorlax     | Sleeping Pok‚mon      | #143   | Normal           |
+| 142 | Articuno    | Freeze Pok‚mon        | #144   | Ice Flying       |
+| 143 | Zapdos      | Electric Pok‚mon      | #145   | Electric Flying  |
+| 144 | Moltres     | Flame Pok‚mon         | #146   | Fire Flying      |
+| 145 | Dratini     | Dragon Pok‚mon        | #147   | Dragon           |
+| 146 | Dragonair   | Dragon Pok‚mon        | #148   | Dragon           |
+| 147 | Dragonite   | Dragon Pok‚mon        | #149   | Dragon Flying    |
+| 148 | Mewtwo      | Genetic Pok‚mon       | #150   | Psychic          |
+| 149 | Mew         | New Species Pok‚mon   | #151   | Psychic          |
+| 150 | Chikorita   | Leaf Pok‚mon          | #152   | Grass            |
+| 151 | Bayleef     | Leaf Pok‚mon          | #153   | Grass            |
+| 152 | Meganium    | Herb Pok‚mon          | #154   | Grass            |
+| 153 | Cyndaquil   | Fire Mouse Pok‚mon    | #155   | Fire             |
+| 154 | Quilava     | Volcano Pok‚mon       | #156   | Fire             |
+| 155 | Typhlosion  | Volcano Pok‚mon       | #157   | Fire             |
+| 156 | Totodile    | Big Jaw Pok‚mon       | #158   | Water            |
+| 157 | Croconaw    | Big Jaw Pok‚mon       | #159   | Water            |
+| 158 | Feraligatr  | Big Jaw Pok‚mon       | #160   | Water            |
+| 159 | Sentret     | Scout Pok‚mon         | #161   | Normal           |
+| 160 | Furret      | Long Body Pok‚mon     | #162   | Normal           |
+| 161 | Hoothoot    | Owl Pok‚mon           | #163   | Normal Flying    |
+| 162 | Noctowl     | Owl Pok‚mon           | #164   | Normal Flying    |
+| 163 | Ledyba      | Five Star Pok‚mon     | #165   | Bug Flying       |
+| 164 | Ledian      | Five Star Pok‚mon     | #166   | Bug Flying       |
+| 165 | Spinarak    | String Spit Pok‚mon   | #167   | Bug Poison       |
+| 166 | Ariados     | Long Leg Pok‚mon      | #168   | Bug Poison       |
+| 167 | Crobat      | Bat Pok‚mon           | #169   | Poison Flying    |
+| 168 | Chinchou    | Angler Pok‚mon        | #170   | Water Electric   |
+| 169 | Lanturn     | Light Pok‚mon         | #171   | Water Electric   |
+| 170 | Pichu       | Tiny Mouse Pok‚mon    | #172   | Electric         |
+| 171 | Cleffa      | Star Shape Pok‚mon    | #173   | Fairy            |
+| 172 | Igglybuff   | Balloon Pok‚mon       | #174   | Normal Fairy     |
+| 173 | Togepi      | Spike Ball Pok‚mon    | #175   | Fairy            |
+| 174 | Togetic     | Happiness Pok‚mon     | #176   | Fairy Flying     |
+| 175 | Natu        | Tiny Bird Pok‚mon     | #177   | Psychic Flying   |
+| 176 | Xatu        | Mystic Pok‚mon        | #178   | Psychic Flying   |
+| 177 | Mareep      | Wool Pok‚mon          | #179   | Electric         |
+| 178 | Flaaffy     | Wool Pok‚mon          | #180   | Electric         |
+| 179 | Ampharos    | Light Pok‚mon         | #181   | Electric         |
+| 180 | Bellossom   | Flower Pok‚mon        | #182   | Grass            |
+| 181 | Marill      | Aqua Mouse Pok‚mon    | #183   | Water Fairy      |
+| 182 | Azumarill   | Aqua Rabbit Pok‚mon   | #184   | Water Fairy      |
+| 183 | Sudowoodo   | Imitation Pok‚mon     | #185   | Rock             |
+| 184 | Politoed    | Frog Pok‚mon          | #186   | Water            |
+| 185 | Hoppip      | Cottonweed Pok‚mon    | #187   | Grass Flying     |
+| 186 | Skiploom    | Cottonweed Pok‚mon    | #188   | Grass Flying     |
+| 187 | Jumpluff    | Cottonweed Pok‚mon    | #189   | Grass Flying     |
+| 188 | Aipom       | Long Tail Pok‚mon     | #190   | Normal           |
+| 189 | Sunkern     | Seed Pok‚mon          | #191   | Grass            |
+| 190 | Sunflora    | Sun Pok‚mon           | #192   | Grass            |
+| 191 | Yanma       | Clear Wing Pok‚mon    | #193   | Bug Flying       |
+| 192 | Wooper      | Water Fish Pok‚mon    | #194   | Water Ground     |
+| 193 | Quagsire    | Water Fish Pok‚mon    | #195   | Water Ground     |
+| 194 | Espeon      | Sun Pok‚mon           | #196   | Psychic          |
+| 195 | Umbreon     | Moonlight Pok‚mon     | #197   | Dark             |
+| 196 | Murkrow     | Darkness Pok‚mon      | #198   | Dark Flying      |
+| 197 | Slowking    | Royal Pok‚mon         | #199   | Water Psychic    |
+| 198 | Misdreavus  | Screech Pok‚mon       | #200   | Ghost            |
+| 199 | Unown       | Symbol Pok‚mon        | #201   | Psychic          |
+| 200 | Wobbuffet   | Patient Pok‚mon       | #202   | Psychic          |
+| 201 | Girafarig   | Long Neck Pok‚mon     | #203   | Normal Psychic   |
+| 202 | Pineco      | Bagworm Pok‚mon       | #204   | Bug              |
+| 203 | Forretress  | Bagworm Pok‚mon       | #205   | Bug Steel        |
+| 204 | Dunsparce   | Land Snake Pok‚mon    | #206   | Normal           |
+| 205 | Gligar      | Fly Scorpion Pok‚mon  | #207   | Ground Flying    |
+| 206 | Steelix     | Iron Snake Pok‚mon    | #208   | Steel Ground     |
+| 207 | Snubbull    | Fairy Pok‚mon         | #209   | Fairy            |
+| 208 | Granbull    | Fairy Pok‚mon         | #210   | Fairy            |
+| 209 | Qwilfish    | Balloon Pok‚mon       | #211   | Water Poison     |
+| 210 | Scizor      | Pincer Pok‚mon        | #212   | Bug Steel        |
+| 211 | Shuckle     | Mold Pok‚mon          | #213   | Bug Rock         |
+| 212 | Heracross   | Single Horn Pok‚mon   | #214   | Bug Fighting     |
+| 213 | Sneasel     | Sharp Claw Pok‚mon    | #215   | Dark Ice         |
+| 214 | Teddiursa   | Little Bear Pok‚mon   | #216   | Normal           |
+| 215 | Ursaring    | Hibernator Pok‚mon    | #217   | Normal           |
+| 216 | Slugma      | Lava Pok‚mon          | #218   | Fire             |
+| 217 | Magcargo    | Lava Pok‚mon          | #219   | Fire Rock        |
+| 218 | Swinub      | Pig Pok‚mon           | #220   | Ice Ground       |
+| 219 | Piloswine   | Swine Pok‚mon         | #221   | Ice Ground       |
+| 220 | Corsola     | Coral Pok‚mon         | #222   | Water Rock       |
+| 221 | Remoraid    | Jet Pok‚mon           | #223   | Water            |
+| 222 | Octillery   | Jet Pok‚mon           | #224   | Water            |
+| 223 | Delibird    | Delivery Pok‚mon      | #225   | Ice Flying       |
+| 224 | Mantine     | Kite Pok‚mon          | #226   | Water Flying     |
+| 225 | Skarmory    | Armor Bird Pok‚mon    | #227   | Steel Flying     |
+| 226 | Houndour    | Dark Pok‚mon          | #228   | Dark Fire        |
+| 227 | Houndoom    | Dark Pok‚mon          | #229   | Dark Fire        |
+| 228 | Kingdra     | Dragon Pok‚mon        | #230   | Water Dragon     |
+| 229 | Phanpy      | Long Nose Pok‚mon     | #231   | Ground           |
+| 230 | Donphan     | Armor Pok‚mon         | #232   | Ground           |
+| 231 | Porygon2    | Virtual Pok‚mon       | #233   | Normal           |
+| 232 | Stantler    | Big Horn Pok‚mon      | #234   | Normal           |
+| 233 | Smeargle    | Painter Pok‚mon       | #235   | Normal           |
+| 234 | Tyrogue     | Scuffle Pok‚mon       | #236   | Fighting         |
+| 235 | Hitmontop   | Handstand Pok‚mon     | #237   | Fighting         |
+| 236 | Smoochum    | Kiss Pok‚mon          | #238   | Ice Psychic      |
+| 237 | Elekid      | Electric Pok‚mon      | #239   | Electric         |
+| 238 | Magby       | Live Coal Pok‚mon     | #240   | Fire             |
+| 239 | Miltank     | Milk Cow Pok‚mon      | #241   | Normal           |
+| 240 | Blissey     | Happiness Pok‚mon     | #242   | Normal           |
+| 241 | Raikou      | Thunder Pok‚mon       | #243   | Electric         |
+| 242 | Entei       | Volcano Pok‚mon       | #244   | Fire             |
+| 243 | Suicune     | Aurora Pok‚mon        | #245   | Water            |
+| 244 | Larvitar    | Rock Skin Pok‚mon     | #246   | Rock Ground      |
+| 245 | Pupitar     | Hard Shell Pok‚mon    | #247   | Rock Ground      |
+| 246 | Tyranitar   | Armor Pok‚mon         | #248   | Rock Dark        |
+| 247 | Lugia       | Diving Pok‚mon        | #249   | Psychic Flying   |
+| 248 | Ho-Oh       | Rainbow Pok‚mon       | #250   | Fire Flying      |
+| 249 | Celebi      | Time Travel Pok‚mon   | #251   | Psychic Grass    |
+| 250 | Treecko     | Wood Gecko Pok‚mon    | #252   | Grass            |
+| 251 | Grovyle     | Wood Gecko Pok‚mon    | #253   | Grass            |
+| 252 | Sceptile    | Forest Pok‚mon        | #254   | Grass            |
+| 253 | Torchic     | Chick Pok‚mon         | #255   | Fire             |
+| 254 | Combusken   | Young Fowl Pok‚mon    | #256   | Fire Fighting    |
+| 255 | Blaziken    | Blaze Pok‚mon         | #257   | Fire Fighting    |
+| 256 | Mudkip      | Mud Fish Pok‚mon      | #258   | Water            |
+| 257 | Marshtomp   | Mud Fish Pok‚mon      | #259   | Water Ground     |
+| 258 | Swampert    | Mud Fish Pok‚mon      | #260   | Water Ground     |
+| 259 | Poochyena   | Bite Pok‚mon          | #261   | Dark             |
+| 260 | Mightyena   | Bite Pok‚mon          | #262   | Dark             |
+| 261 | Zigzagoon   | Tiny Raccoon Pok‚mon  | #263   | Normal           |
+| 262 | Linoone     | Rushing Pok‚mon       | #264   | Normal           |
+| 263 | Wurmple     | Worm Pok‚mon          | #265   | Bug              |
+| 264 | Silcoon     | Cocoon Pok‚mon        | #266   | Bug              |
+| 265 | Beautifly   | Butterfly Pok‚mon     | #267   | Bug Flying       |
+| 266 | Cascoon     | Cocoon Pok‚mon        | #268   | Bug              |
+| 267 | Dustox      | Poison Moth Pok‚mon   | #269   | Bug Poison       |
+| 268 | Lotad       | Water Weed Pok‚mon    | #270   | Water Grass      |
+| 269 | Lombre      | Jolly Pok‚mon         | #271   | Water Grass      |
+| 270 | Ludicolo    | Carefree Pok‚mon      | #272   | Water Grass      |
+| 271 | Seedot      | Acorn Pok‚mon         | #273   | Grass            |
+| 272 | Nuzleaf     | Wily Pok‚mon          | #274   | Grass Dark       |
+| 273 | Shiftry     | Wicked Pok‚mon        | #275   | Grass Dark       |
+| 274 | Taillow     | Tiny Swallow Pok‚mon  | #276   | Normal Flying    |
+| 275 | Swellow     | Swallow Pok‚mon       | #277   | Normal Flying    |
+| 276 | Wingull     | Seagull Pok‚mon       | #278   | Water Flying     |
+| 277 | Pelipper    | Water Bird Pok‚mon    | #279   | Water Flying     |
+| 278 | Ralts       | Feeling Pok‚mon       | #280   | Psychic Fairy    |
+| 279 | Kirlia      | Emotion Pok‚mon       | #281   | Psychic Fairy    |
+| 280 | Gardevoir   | Embrace Pok‚mon       | #282   | Psychic Fairy    |
+| 281 | Surskit     | Pond Skater Pok‚mon   | #283   | Bug Water        |
+| 282 | Masquerain  | Eyeball Pok‚mon       | #284   | Bug Flying       |
+| 283 | Shroomish   | Mushroom Pok‚mon      | #285   | Grass            |
+| 284 | Breloom     | Mushroom Pok‚mon      | #286   | Grass Fighting   |
+| 285 | Slakoth     | Slacker Pok‚mon       | #287   | Normal           |
+| 286 | Vigoroth    | Wild Monkey Pok‚mon   | #288   | Normal           |
+| 287 | Slaking     | Lazy Pok‚mon          | #289   | Normal           |
+| 288 | Nincada     | Trainee Pok‚mon       | #290   | Bug Ground       |
+| 289 | Ninjask     | Ninja Pok‚mon         | #291   | Bug Flying       |
+| 290 | Shedinja    | Shed Pok‚mon          | #292   | Bug Ghost        |
+| 291 | Whismur     | Whisper Pok‚mon       | #293   | Normal           |
+| 292 | Loudred     | Big Voice Pok‚mon     | #294   | Normal           |
+| 293 | Exploud     | Loud Noise Pok‚mon    | #295   | Normal           |
+| 294 | Makuhita    | Guts Pok‚mon          | #296   | Fighting         |
+| 295 | Hariyama    | Arm Thrust Pok‚mon    | #297   | Fighting         |
+| 296 | Azurill     | Polka Dot Pok‚mon     | #298   | Normal Fairy     |
+| 297 | Nosepass    | Compass Pok‚mon       | #299   | Rock             |
+| 298 | Skitty      | Kitten Pok‚mon        | #300   | Normal           |
+| 299 | Delcatty    | Prim Pok‚mon          | #301   | Normal           |
+| 300 | Sableye     | Darkness Pok‚mon      | #302   | Dark Ghost       |
+| 301 | Mawile      | Deceiver Pok‚mon      | #303   | Steel Fairy      |
+| 302 | Aron        | Iron Armor Pok‚mon    | #304   | Steel Rock       |
+| 303 | Lairon      | Iron Armor Pok‚mon    | #305   | Steel Rock       |
+| 304 | Aggron      | Iron Armor Pok‚mon    | #306   | Steel Rock       |
+| 305 | Meditite    | Meditate Pok‚mon      | #307   | Fighting Psychic |
+| 306 | Medicham    | Meditate Pok‚mon      | #308   | Fighting Psychic |
+| 307 | Electrike   | Lightning Pok‚mon     | #309   | Electric         |
+| 308 | Manectric   | Discharge Pok‚mon     | #310   | Electric         |
+| 309 | Plusle      | Cheering Pok‚mon      | #311   | Electric         |
+| 310 | Minun       | Cheering Pok‚mon      | #312   | Electric         |
+| 311 | Volbeat     | Firefly Pok‚mon       | #313   | Bug              |
+| 312 | Illumise    | Firefly Pok‚mon       | #314   | Bug              |
+| 313 | Roselia     | Thorn Pok‚mon         | #315   | Grass Poison     |
+| 314 | Gulpin      | Stomach Pok‚mon       | #316   | Poison           |
+| 315 | Swalot      | Poison Bag Pok‚mon    | #317   | Poison           |
+| 316 | Carvanha    | Savage Pok‚mon        | #318   | Water Dark       |
+| 317 | Sharpedo    | Brutal Pok‚mon        | #319   | Water Dark       |
+| 318 | Wailmer     | Ball Whale Pok‚mon    | #320   | Water            |
+| 319 | Wailord     | Float Whale Pok‚mon   | #321   | Water            |
+| 320 | Numel       | Numb Pok‚mon          | #322   | Fire Ground      |
+| 321 | Camerupt    | Eruption Pok‚mon      | #323   | Fire Ground      |
+| 322 | Torkoal     | Coal Pok‚mon          | #324   | Fire             |
+| 323 | Spoink      | Bounce Pok‚mon        | #325   | Psychic          |
+| 324 | Grumpig     | Manipulate Pok‚mon    | #326   | Psychic          |
+| 325 | Spinda      | Spot Panda Pok‚mon    | #327   | Normal           |
+| 326 | Trapinch    | Ant Pit Pok‚mon       | #328   | Ground           |
+| 327 | Vibrava     | Vibration Pok‚mon     | #329   | Ground Dragon    |
+| 328 | Flygon      | Mystic Pok‚mon        | #330   | Ground Dragon    |
+| 329 | Cacnea      | Cactus Pok‚mon        | #331   | Grass            |
+| 330 | Cacturne    | Scarecrow Pok‚mon     | #332   | Grass Dark       |
+| 331 | Swablu      | Cotton Bird Pok‚mon   | #333   | Normal Flying    |
+| 332 | Altaria     | Humming Pok‚mon       | #334   | Dragon Flying    |
+| 333 | Zangoose    | Cat Ferret Pok‚mon    | #335   | Normal           |
+| 334 | Seviper     | Fang Snake Pok‚mon    | #336   | Poison           |
+| 335 | Lunatone    | Meteorite Pok‚mon     | #337   | Rock Psychic     |
+| 336 | Solrock     | Meteorite Pok‚mon     | #338   | Rock Psychic     |
+| 337 | Barboach    | Whiskers Pok‚mon      | #339   | Water Ground     |
+| 338 | Whiscash    | Whiskers Pok‚mon      | #340   | Water Ground     |
+| 339 | Corphish    | Ruffian Pok‚mon       | #341   | Water            |
+| 340 | Crawdaunt   | Rogue Pok‚mon         | #342   | Water Dark       |
+| 341 | Baltoy      | Clay Doll Pok‚mon     | #343   | Ground Psychic   |
+| 342 | Claydol     | Clay Doll Pok‚mon     | #344   | Ground Psychic   |
+| 343 | Lileep      | Sea Lily Pok‚mon      | #345   | Rock Grass       |
+| 344 | Cradily     | Barnacle Pok‚mon      | #346   | Rock Grass       |
+| 345 | Anorith     | Old Shrimp Pok‚mon    | #347   | Rock Bug         |
+| 346 | Armaldo     | Plate Pok‚mon         | #348   | Rock Bug         |
+| 347 | Feebas      | Fish Pok‚mon          | #349   | Water            |
+| 348 | Milotic     | Tender Pok‚mon        | #350   | Water            |
+| 349 | Castform    | Weather Pok‚mon       | #351   | Normal           |
+| 350 | Kecleon     | Color Swap Pok‚mon    | #352   | Normal           |
+| 351 | Shuppet     | Puppet Pok‚mon        | #353   | Ghost            |
+| 352 | Banette     | Marionette Pok‚mon    | #354   | Ghost            |
+| 353 | Duskull     | Requiem Pok‚mon       | #355   | Ghost            |
+| 354 | Dusclops    | Beckon Pok‚mon        | #356   | Ghost            |
+| 355 | Tropius     | Fruit Pok‚mon         | #357   | Grass Flying     |
+| 356 | Chimecho    | Wind Chime Pok‚mon    | #358   | Psychic          |
+| 357 | Absol       | Disaster Pok‚mon      | #359   | Dark             |
+| 358 | Wynaut      | Bright Pok‚mon        | #360   | Psychic          |
+| 359 | Snorunt     | Snow Hat Pok‚mon      | #361   | Ice              |
+| 360 | Glalie      | Face Pok‚mon          | #362   | Ice              |
+| 361 | Spheal      | Clap Pok‚mon          | #363   | Ice Water        |
+| 362 | Sealeo      | Ball Roll Pok‚mon     | #364   | Ice Water        |
+| 363 | Walrein     | Ice Break Pok‚mon     | #365   | Ice Water        |
+| 364 | Clamperl    | Bivalve Pok‚mon       | #366   | Water            |
+| 365 | Huntail     | Deep Sea Pok‚mon      | #367   | Water            |
+| 366 | Gorebyss    | South Sea Pok‚mon     | #368   | Water            |
+| 367 | Relicanth   | Longevity Pok‚mon     | #369   | Water Rock       |
+| 368 | Luvdisc     | Rendezvous Pok‚mon    | #370   | Water            |
+| 369 | Bagon       | Rock Head Pok‚mon     | #371   | Dragon           |
+| 370 | Shelgon     | Endurance Pok‚mon     | #372   | Dragon           |
+| 371 | Salamence   | Dragon Pok‚mon        | #373   | Dragon Flying    |
+| 372 | Beldum      | Iron Ball Pok‚mon     | #374   | Steel Psychic    |
+| 373 | Metang      | Iron Claw Pok‚mon     | #375   | Steel Psychic    |
+| 374 | Metagross   | Iron Leg Pok‚mon      | #376   | Steel Psychic    |
+| 375 | Regirock    | Rock Peak Pok‚mon     | #377   | Rock             |
+| 376 | Regice      | Iceberg Pok‚mon       | #378   | Ice              |
+| 377 | Registeel   | Iron Pok‚mon          | #379   | Steel            |
+| 378 | Latias      | Eon Pok‚mon           | #380   | Dragon Psychic   |
+| 379 | Latios      | Eon Pok‚mon           | #381   | Dragon Psychic   |
+| 380 | Kyogre      | Sea Basin Pok‚mon     | #382   | Water            |
+| 381 | Groudon     | Continent Pok‚mon     | #383   | Ground           |
+| 382 | Rayquaza    | Sky High Pok‚mon      | #384   | Dragon Flying    |
+| 383 | Jirachi     | Wish Pok‚mon          | #385   | Steel Psychic    |
+| 384 | Deoxys      | DNA Pok‚mon           | #386   | Psychic          |
+| 385 | Turtwig     | Tiny Leaf Pok‚mon     | #387   | Grass            |
+| 386 | Grotle      | Grove Pok‚mon         | #388   | Grass            |
+| 387 | Torterra    | Continent Pok‚mon     | #389   | Grass Ground     |
+| 388 | Chimchar    | Chimp Pok‚mon         | #390   | Fire             |
+| 389 | Monferno    | Playful Pok‚mon       | #391   | Fire Fighting    |
+| 390 | Infernape   | Flame Pok‚mon         | #392   | Fire Fighting    |
+| 391 | Piplup      | Penguin Pok‚mon       | #393   | Water            |
+| 392 | Prinplup    | Penguin Pok‚mon       | #394   | Water            |
+| 393 | Empoleon    | Emperor Pok‚mon       | #395   | Water Steel      |
+| 394 | Starly      | Starling Pok‚mon      | #396   | Normal Flying    |
+| 395 | Staravia    | Starling Pok‚mon      | #397   | Normal Flying    |
+| 396 | Staraptor   | Predator Pok‚mon      | #398   | Normal Flying    |
+| 397 | Bidoof      | Plump Mouse Pok‚mon   | #399   | Normal           |
+| 398 | Bibarel     | Beaver Pok‚mon        | #400   | Normal Water     |
+| 399 | Kricketot   | Cricket Pok‚mon       | #401   | Bug              |
+| 400 | Kricketune  | Cricket Pok‚mon       | #402   | Bug              |
+| 401 | Shinx       | Flash Pok‚mon         | #403   | Electric         |
+| 402 | Luxio       | Spark Pok‚mon         | #404   | Electric         |
+| 403 | Luxray      | Gleam Eyes Pok‚mon    | #405   | Electric         |
+| 404 | Budew       | Bud Pok‚mon           | #406   | Grass Poison     |
+| 405 | Roserade    | Bouquet Pok‚mon       | #407   | Grass Poison     |
+| 406 | Cranidos    | Head Butt Pok‚mon     | #408   | Rock             |
+| 407 | Rampardos   | Head Butt Pok‚mon     | #409   | Rock             |
+| 408 | Shieldon    | Shield Pok‚mon        | #410   | Rock Steel       |
+| 409 | Bastiodon   | Shield Pok‚mon        | #411   | Rock Steel       |
+| 410 | Burmy       | Bagworm Pok‚mon       | #412   | Bug              |
+| 411 | Wormadam    | Bagworm Pok‚mon       | #413   | Bug Grass        |
+| 412 | Mothim      | Moth Pok‚mon          | #414   | Bug Flying       |
+| 413 | Combee      | Tiny Bee Pok‚mon      | #415   | Bug Flying       |
+| 414 | Vespiquen   | Beehive Pok‚mon       | #416   | Bug Flying       |
+| 415 | Pachirisu   | EleSquirrel Pok‚mon   | #417   | Electric         |
+| 416 | Buizel      | Sea Weasel Pok‚mon    | #418   | Water            |
+| 417 | Floatzel    | Sea Weasel Pok‚mon    | #419   | Water            |
+| 418 | Cherubi     | Cherry Pok‚mon        | #420   | Grass            |
+| 419 | Cherrim     | Blossom Pok‚mon       | #421   | Grass            |
+| 420 | Shellos     | Sea Slug Pok‚mon      | #422   | Water            |
+| 421 | Gastrodon   | Sea Slug Pok‚mon      | #423   | Water Ground     |
+| 422 | Ambipom     | Long Tail Pok‚mon     | #424   | Normal           |
+| 423 | Drifloon    | Balloon Pok‚mon       | #425   | Ghost Flying     |
+| 424 | Drifblim    | Blimp Pok‚mon         | #426   | Ghost Flying     |
+| 425 | Buneary     | Rabbit Pok‚mon        | #427   | Normal           |
+| 426 | Lopunny     | Rabbit Pok‚mon        | #428   | Normal           |
+| 427 | Mismagius   | Magical Pok‚mon       | #429   | Ghost            |
+| 428 | Honchkrow   | Big Boss Pok‚mon      | #430   | Dark Flying      |
+| 429 | Glameow     | Catty Pok‚mon         | #431   | Normal           |
+| 430 | Purugly     | Tiger Cat Pok‚mon     | #432   | Normal           |
+| 431 | Chingling   | Bell Pok‚mon          | #433   | Psychic          |
+| 432 | Stunky      | Skunk Pok‚mon         | #434   | Poison Dark      |
+| 433 | Skuntank    | Skunk Pok‚mon         | #435   | Poison Dark      |
+| 434 | Bronzor     | Bronze Pok‚mon        | #436   | Steel Psychic    |
+| 435 | Bronzong    | Bronze Bell Pok‚mon   | #437   | Steel Psychic    |
+| 436 | Bonsly      | Bonsai Pok‚mon        | #438   | Rock             |
+| 437 | Mime Jr.    | Mime Pok‚mon          | #439   | Psychic Fairy    |
+| 438 | Happiny     | Playhouse Pok‚mon     | #440   | Normal           |
+| 439 | Chatot      | Music Note Pok‚mon    | #441   | Normal Flying    |
+| 440 | Spiritomb   | Forbidden Pok‚mon     | #442   | Ghost Dark       |
+| 441 | Gible       | Land Shark Pok‚mon    | #443   | Dragon Ground    |
+| 442 | Gabite      | Cave Pok‚mon          | #444   | Dragon Ground    |
+| 443 | Garchomp    | Mach Pok‚mon          | #445   | Dragon Ground    |
+| 444 | Munchlax    | Big Eater Pok‚mon     | #446   | Normal           |
+| 445 | Riolu       | Emanation Pok‚mon     | #447   | Fighting         |
+| 446 | Lucario     | Aura Pok‚mon          | #448   | Fighting Steel   |
+| 447 | Hippopotas  | Hippo Pok‚mon         | #449   | Ground           |
+| 448 | Hippowdon   | Heavyweight Pok‚mon   | #450   | Ground           |
+| 449 | Skorupi     | Scorpion Pok‚mon      | #451   | Poison Bug       |
+| 450 | Drapion     | Ogre Scorpion Pok‚mon | #452   | Poison Dark      |
+| 451 | Croagunk    | Toxic Mouth Pok‚mon   | #453   | Poison Fighting  |
+| 452 | Toxicroak   | Toxic Mouth Pok‚mon   | #454   | Poison Fighting  |
+| 453 | Carnivine   | Bug Catcher Pok‚mon   | #455   | Grass            |
+| 454 | Finneon     | Wing Fish Pok‚mon     | #456   | Water            |
+| 455 | Lumineon    | Neon Pok‚mon          | #457   | Water            |
+| 456 | Mantyke     | Kite Pok‚mon          | #458   | Water Flying     |
+| 457 | Snover      | Frost Tree Pok‚mon    | #459   | Grass Ice        |
+| 458 | Abomasnow   | Frost Tree Pok‚mon    | #460   | Grass Ice        |
+| 459 | Weavile     | Sharp Claw Pok‚mon    | #461   | Dark Ice         |
+| 460 | Magnezone   | Magnet Area Pok‚mon   | #462   | Electric Steel   |
+| 461 | Lickilicky  | Licking Pok‚mon       | #463   | Normal           |
+| 462 | Rhyperior   | Drill Pok‚mon         | #464   | Ground Rock      |
+| 463 | Tangrowth   | Vine Pok‚mon          | #465   | Grass            |
+| 464 | Electivire  | Thunderbolt Pok‚mon   | #466   | Electric         |
+| 465 | Magmortar   | Blast Pok‚mon         | #467   | Fire             |
+| 466 | Togekiss    | Jubilee Pok‚mon       | #468   | Fairy Flying     |
+| 467 | Yanmega     | Ogre Darner Pok‚mon   | #469   | Bug Flying       |
+| 468 | Leafeon     | Verdant Pok‚mon       | #470   | Grass            |
+| 469 | Glaceon     | Fresh Snow Pok‚mon    | #471   | Ice              |
+| 470 | Gliscor     | Fang Scorpion Pok‚mon | #472   | Ground Flying    |
+| 471 | Mamoswine   | Twin Tusk Pok‚mon     | #473   | Ice Ground       |
+| 472 | Porygon-Z   | Virtual Pok‚mon       | #474   | Normal           |
+| 473 | Gallade     | Blade Pok‚mon         | #475   | Psychic Fighting |
+| 474 | Probopass   | Compass Pok‚mon       | #476   | Rock Steel       |
+| 475 | Dusknoir    | Gripper Pok‚mon       | #477   | Ghost            |
+| 476 | Froslass    | Snow Land Pok‚mon     | #478   | Ice Ghost        |
+| 477 | Rotom       | Plasma Pok‚mon        | #479   | Electric Ghost   |
+| 478 | Uxie        | Knowledge Pok‚mon     | #480   | Psychic          |
+| 479 | Mesprit     | Emotion Pok‚mon       | #481   | Psychic          |
+| 480 | Azelf       | Willpower Pok‚mon     | #482   | Psychic          |
+| 481 | Dialga      | Temporal Pok‚mon      | #483   | Steel Dragon     |
+| 482 | Palkia      | Spatial Pok‚mon       | #484   | Water Dragon     |
+| 483 | Heatran     | Lava Dome Pok‚mon     | #485   | Fire Steel       |
+| 484 | Regigigas   | Colossal Pok‚mon      | #486   | Normal           |
+| 485 | Giratina    | Renegade Pok‚mon      | #487   | Ghost Dragon     |
+| 486 | Cresselia   | Lunar Pok‚mon         | #488   | Psychic          |
+| 487 | Phione      | Sea Drifter Pok‚mon   | #489   | Water            |
+| 488 | Manaphy     | Seafaring Pok‚mon     | #490   | Water            |
+| 489 | Darkrai     | Pitch-Black Pok‚mon   | #491   | Dark             |
+| 490 | Shaymin     | Gratitude Pok‚mon     | #492   | Grass            |
+| 491 | Arceus      | Alpha Pok‚mon         | #493   | Normal           |
+| 492 | Victini     | Victory Pok‚mon       | #494   | Psychic Fire     |
+| 493 | Snivy       | Grass Snake Pok‚mon   | #495   | Grass            |
+| 494 | Servine     | Grass Snake Pok‚mon   | #496   | Grass            |
+| 495 | Serperior   | Regal Pok‚mon         | #497   | Grass            |
+| 496 | Tepig       | Fire Pig Pok‚mon      | #498   | Fire             |
+| 497 | Pignite     | Fire Pig Pok‚mon      | #499   | Fire Fighting    |
+| 498 | Emboar      | Mega Fire Pig Pok‚mon | #500   | Fire Fighting    |
+| 499 | Oshawott    | Sea Otter Pok‚mon     | #501   | Water            |
+| 500 | Dewott      | Discipline Pok‚mon    | #502   | Water            |
+| 501 | Samurott    | Formidable Pok‚mon    | #503   | Water            |
+| 502 | Patrat      | Scout Pok‚mon         | #504   | Normal           |
+| 503 | Watchog     | Lookout Pok‚mon       | #505   | Normal           |
+| 504 | Lillipup    | Puppy Pok‚mon         | #506   | Normal           |
+| 505 | Herdier     | Loyal Dog Pok‚mon     | #507   | Normal           |
+| 506 | Stoutland   | Big-Hearted Pok‚mon   | #508   | Normal           |
+| 507 | Purrloin    | Devious Pok‚mon       | #509   | Dark             |
+| 508 | Liepard     | Cruel Pok‚mon         | #510   | Dark             |
+| 509 | Pansage     | Grass Monkey Pok‚mon  | #511   | Grass            |
+| 510 | Simisage    | Thorn Monkey Pok‚mon  | #512   | Grass            |
+| 511 | Pansear     | High Temp Pok‚mon     | #513   | Fire             |
+| 512 | Simisear    | Ember Pok‚mon         | #514   | Fire             |
+| 513 | Panpour     | Spray Pok‚mon         | #515   | Water            |
+| 514 | Simipour    | Geyser Pok‚mon        | #516   | Water            |
+| 515 | Munna       | Dream Eater Pok‚mon   | #517   | Psychic          |
+| 516 | Musharna    | Drowsing Pok‚mon      | #518   | Psychic          |
+| 517 | Pidove      | Tiny Pigeon Pok‚mon   | #519   | Normal Flying    |
+| 518 | Tranquill   | Wild Pigeon Pok‚mon   | #520   | Normal Flying    |
+| 519 | Unfezant    | Proud Pok‚mon         | #521   | Normal Flying    |
+| 520 | Blitzle     | Electrified Pok‚mon   | #522   | Electric         |
+| 521 | Zebstrika   | Thunderbolt Pok‚mon   | #523   | Electric         |
+| 522 | Roggenrola  | Mantle Pok‚mon        | #524   | Rock             |
+| 523 | Boldore     | Ore Pok‚mon           | #525   | Rock             |
+| 524 | Gigalith    | Compressed Pok‚mon    | #526   | Rock             |
+| 525 | Woobat      | Bat Pok‚mon           | #527   | Psychic Flying   |
+| 526 | Swoobat     | Courting Pok‚mon      | #528   | Psychic Flying   |
+| 527 | Drilbur     | Mole Pok‚mon          | #529   | Ground           |
+| 528 | Excadrill   | Subterrene Pok‚mon    | #530   | Ground Steel     |
+| 529 | Audino      | Hearing Pok‚mon       | #531   | Normal           |
+| 530 | Timburr     | Muscular Pok‚mon      | #532   | Fighting         |
+| 531 | Gurdurr     | Muscular Pok‚mon      | #533   | Fighting         |
+| 532 | Conkeldurr  | Muscular Pok‚mon      | #534   | Fighting         |
+| 533 | Tympole     | Tadpole Pok‚mon       | #535   | Water            |
+| 534 | Palpitoad   | Vibration Pok‚mon     | #536   | Water Ground     |
+| 535 | Seismitoad  | Vibration Pok‚mon     | #537   | Water Ground     |
+| 536 | Throh       | Judo Pok‚mon          | #538   | Fighting         |
+| 537 | Sawk        | Karate Pok‚mon        | #539   | Fighting         |
+| 538 | Sewaddle    | Sewing Pok‚mon        | #540   | Bug Grass        |
+| 539 | Swadloon    | Leaf-Wrapped Pok‚mon  | #541   | Bug Grass        |
+| 540 | Leavanny    | Nurturing Pok‚mon     | #542   | Bug Grass        |
+| 541 | Venipede    | Centipede Pok‚mon     | #543   | Bug Poison       |
+| 542 | Whirlipede  | Curlipede Pok‚mon     | #544   | Bug Poison       |
+| 543 | Scolipede   | Megapede Pok‚mon      | #545   | Bug Poison       |
+| 544 | Cottonee    | Cotton Puff Pok‚mon   | #546   | Grass Fairy      |
+| 545 | Whimsicott  | Windveiled Pok‚mon    | #547   | Grass Fairy      |
+| 546 | Petilil     | Bulb Pok‚mon          | #548   | Grass            |
+| 547 | Lilligant   | Flowering Pok‚mon     | #549   | Grass            |
+| 548 | Basculin    | Hostile Pok‚mon       | #550   | Water            |
+| 549 | Sandile     | Desert Croc Pok‚mon   | #551   | Ground Dark      |
+| 550 | Krokorok    | Desert Croc Pok‚mon   | #552   | Ground Dark      |
+| 551 | Krookodile  | Intimidation Pok‚mon  | #553   | Ground Dark      |
+| 552 | Darumaka    | Zen Charm Pok‚mon     | #554   | Fire             |
+| 553 | Darmanitan  | Blazing Pok‚mon       | #555   | Fire             |
+| 554 | Maractus    | Cactus Pok‚mon        | #556   | Grass            |
+| 555 | Dwebble     | Rock Inn Pok‚mon      | #557   | Bug Rock         |
+| 556 | Crustle     | Stone Home Pok‚mon    | #558   | Bug Rock         |
+| 557 | Scraggy     | Shedding Pok‚mon      | #559   | Dark Fighting    |
+| 558 | Scrafty     | Hoodlum Pok‚mon       | #560   | Dark Fighting    |
+| 559 | Sigilyph    | Avianoid Pok‚mon      | #561   | Psychic Flying   |
+| 560 | Yamask      | Spirit Pok‚mon        | #562   | Ghost            |
+| 561 | Cofagrigus  | Coffin Pok‚mon        | #563   | Ghost            |
+| 562 | Tirtouga    | Prototurtle Pok‚mon   | #564   | Water Rock       |
+| 563 | Carracosta  | Prototurtle Pok‚mon   | #565   | Water Rock       |
+| 564 | Archen      | First Bird Pok‚mon    | #566   | Rock Flying      |
+| 565 | Archeops    | First Bird Pok‚mon    | #567   | Rock Flying      |
+| 566 | Trubbish    | Trash Bag Pok‚mon     | #568   | Poison           |
+| 567 | Garbodor    | Trash Heap Pok‚mon    | #569   | Poison           |
+| 568 | Zorua       | Tricky Fox Pok‚mon    | #570   | Dark             |
+| 569 | Zoroark     | Illusion Fox Pok‚mon  | #571   | Dark             |
+| 570 | Minccino    | Chinchilla Pok‚mon    | #572   | Normal           |
+| 571 | Cinccino    | Scarf Pok‚mon         | #573   | Normal           |
+| 572 | Gothita     | Fixation Pok‚mon      | #574   | Psychic          |
+| 573 | Gothorita   | Manipulate Pok‚mon    | #575   | Psychic          |
+| 574 | Gothitelle  | Astral Body Pok‚mon   | #576   | Psychic          |
+| 575 | Solosis     | Cell Pok‚mon          | #577   | Psychic          |
+| 576 | Duosion     | Mitosis Pok‚mon       | #578   | Psychic          |
+| 577 | Reuniclus   | Multiplying Pok‚mon   | #579   | Psychic          |
+| 578 | Ducklett    | Water Bird Pok‚mon    | #580   | Water Flying     |
+| 579 | Swanna      | White Bird Pok‚mon    | #581   | Water Flying     |
+| 580 | Vanillite   | Fresh Snow Pok‚mon    | #582   | Ice              |
+| 581 | Vanillish   | Icy Snow Pok‚mon      | #583   | Ice              |
+| 582 | Vanilluxe   | Snowstorm Pok‚mon     | #584   | Ice              |
+| 583 | Deerling    | Season Pok‚mon        | #585   | Normal Grass     |
+| 584 | Sawsbuck    | Season Pok‚mon        | #586   | Normal Grass     |
+| 585 | Emolga      | Sky Squirrel Pok‚mon  | #587   | Electric Flying  |
+| 586 | Karrablast  | Clamping Pok‚mon      | #588   | Bug              |
+| 587 | Escavalier  | Cavalry Pok‚mon       | #589   | Bug Steel        |
+| 588 | Foongus     | Mushroom Pok‚mon      | #590   | Grass Poison     |
+| 589 | Amoonguss   | Mushroom Pok‚mon      | #591   | Grass Poison     |
+| 590 | Frillish    | Floating Pok‚mon      | #592   | Water Ghost      |
+| 591 | Jellicent   | Floating Pok‚mon      | #593   | Water Ghost      |
+| 592 | Alomomola   | Caring Pok‚mon        | #594   | Water            |
+| 593 | Joltik      | Attaching Pok‚mon     | #595   | Bug Electric     |
+| 594 | Galvantula  | EleSpider Pok‚mon     | #596   | Bug Electric     |
+| 595 | Ferroseed   | Thorn Seed Pok‚mon    | #597   | Grass Steel      |
+| 596 | Ferrothorn  | Thorn Pod Pok‚mon     | #598   | Grass Steel      |
+| 597 | Klink       | Gear Pok‚mon          | #599   | Steel            |
+| 598 | Klang       | Gear Pok‚mon          | #600   | Steel            |
+| 599 | Klinklang   | Gear Pok‚mon          | #601   | Steel            |
+| 600 | Tynamo      | EleFish Pok‚mon       | #602   | Electric         |
+| 601 | Eelektrik   | EleFish Pok‚mon       | #603   | Electric         |
+| 602 | Eelektross  | EleFish Pok‚mon       | #604   | Electric         |
+| 603 | Elgyem      | Cerebral Pok‚mon      | #605   | Psychic          |
+| 604 | Beheeyem    | Cerebral Pok‚mon      | #606   | Psychic          |
+| 605 | Litwick     | Candle Pok‚mon        | #607   | Ghost Fire       |
+| 606 | Lampent     | Lamp Pok‚mon          | #608   | Ghost Fire       |
+| 607 | Chandelure  | Luring Pok‚mon        | #609   | Ghost Fire       |
+| 608 | Axew        | Tusk Pok‚mon          | #610   | Dragon           |
+| 609 | Fraxure     | Axe Jaw Pok‚mon       | #611   | Dragon           |
+| 610 | Haxorus     | Axe Jaw Pok‚mon       | #612   | Dragon           |
+| 611 | Cubchoo     | Chill Pok‚mon         | #613   | Ice              |
+| 612 | Beartic     | Freezing Pok‚mon      | #614   | Ice              |
+| 613 | Cryogonal   | Crystallizing Pok‚mon | #615   | Ice              |
+| 614 | Shelmet     | Snail Pok‚mon         | #616   | Bug              |
+| 615 | Accelgor    | Shell Out Pok‚mon     | #617   | Bug              |
+| 616 | Stunfisk    | Trap Pok‚mon          | #618   | Ground Electric  |
+| 617 | Mienfoo     | Martial Arts Pok‚mon  | #619   | Fighting         |
+| 618 | Mienshao    | Martial Arts Pok‚mon  | #620   | Fighting         |
+| 619 | Druddigon   | Cave Pok‚mon          | #621   | Dragon           |
+| 620 | Golett      | Automaton Pok‚mon     | #622   | Ground Ghost     |
+| 621 | Golurk      | Automaton Pok‚mon     | #623   | Ground Ghost     |
+| 622 | Pawniard    | Sharp Blade Pok‚mon   | #624   | Dark Steel       |
+| 623 | Bisharp     | Sword Blade Pok‚mon   | #625   | Dark Steel       |
+| 624 | Bouffalant  | Bash Buffalo Pok‚mon  | #626   | Normal           |
+| 625 | Rufflet     | Eaglet Pok‚mon        | #627   | Normal Flying    |
+| 626 | Braviary    | Valiant Pok‚mon       | #628   | Normal Flying    |
+| 627 | Vullaby     | Diapered Pok‚mon      | #629   | Dark Flying      |
+| 628 | Mandibuzz   | Bone Vulture Pok‚mon  | #630   | Dark Flying      |
+| 629 | Heatmor     | Anteater Pok‚mon      | #631   | Fire             |
+| 630 | Durant      | Iron Ant Pok‚mon      | #632   | Bug Steel        |
+| 631 | Deino       | Irate Pok‚mon         | #633   | Dark Dragon      |
+| 632 | Zweilous    | Hostile Pok‚mon       | #634   | Dark Dragon      |
+| 633 | Hydreigon   | Brutal Pok‚mon        | #635   | Dark Dragon      |
+| 634 | Larvesta    | Torch Pok‚mon         | #636   | Bug Fire         |
+| 635 | Volcarona   | Sun Pok‚mon           | #637   | Bug Fire         |
+| 636 | Cobalion    | Iron Will Pok‚mon     | #638   | Steel Fighting   |
+| 637 | Terrakion   | Cavern Pok‚mon        | #639   | Rock Fighting    |
+| 638 | Virizion    | Grassland Pok‚mon     | #640   | Grass Fighting   |
+| 639 | Tornadus    | Cyclone Pok‚mon       | #641   | Flying           |
+| 640 | Thundurus   | Bolt Strike Pok‚mon   | #642   | Electric Flying  |
+| 641 | Reshiram    | Vast White Pok‚mon    | #643   | Dragon Fire      |
+| 642 | Zekrom      | Deep Black Pok‚mon    | #644   | Dragon Electric  |
+| 643 | Landorus    | Abundance Pok‚mon     | #645   | Ground Flying    |
+| 644 | Kyurem      | Boundary Pok‚mon      | #646   | Dragon Ice       |
+| 645 | Keldeo      | Colt Pok‚mon          | #647   | Water Fighting   |
+| 646 | Meloetta    | Melody Pok‚mon        | #648   | Normal Psychic   |
+| 647 | Genesect    | Paleozoic Pok‚mon     | #649   | Bug Steel        |
+| 648 | Chespin     | Spiny Nut Pok‚mon     | #650   | Grass            |
+| 649 | Quilladin   | Spiny Armor Pok‚mon   | #651   | Grass            |
+| 650 | Chesnaught  | Spiny Armor Pok‚mon   | #652   | Grass Fighting   |
+| 651 | Fennekin    | Fox Pok‚mon           | #653   | Fire             |
+| 652 | Braixen     | Fox Pok‚mon           | #654   | Fire             |
+| 653 | Delphox     | Fox Pok‚mon           | #655   | Fire Psychic     |
+| 654 | Froakie     | Bubble Frog Pok‚mon   | #656   | Water            |
+| 655 | Frogadier   | Bubble Frog Pok‚mon   | #657   | Water            |
+| 656 | Greninja    | Ninja Pok‚mon         | #658   | Water Dark       |
+| 657 | Bunnelby    | Digging Pok‚mon       | #659   | Normal           |
+| 658 | Diggersby   | Digging Pok‚mon       | #660   | Normal Ground    |
+| 659 | Fletchling  | Tiny Robin Pok‚mon    | #661   | Normal Flying    |
+| 660 | Fletchinder | Ember Pok‚mon         | #662   | Fire Flying      |
+| 661 | Talonflame  | Scorching Pok‚mon     | #663   | Fire Flying      |
+| 662 | Scatterbug  | Scatterdust Pok‚mon   | #664   | Bug              |
+| 663 | Spewpa      | Scatterdust Pok‚mon   | #665   | Bug              |
+| 664 | Vivillon    | Scale Pok‚mon         | #666   | Bug Flying       |
+| 665 | Litleo      | Lion Cub Pok‚mon      | #667   | Fire Normal      |
+| 666 | Pyroar      | Royal Pok‚mon         | #668   | Fire Normal      |
+| 667 | Flab‚b‚     | Single Bloom Pok‚mon  | #669   | Fairy            |
+| 668 | Floette     | Single Bloom Pok‚mon  | #670   | Fairy            |
+| 669 | Florges     | Garden Pok‚mon        | #671   | Fairy            |
+| 670 | Skiddo      | Mount Pok‚mon         | #672   | Grass            |
+| 671 | Gogoat      | Mount Pok‚mon         | #673   | Grass            |
+| 672 | Pancham     | Playful Pok‚mon       | #674   | Fighting         |
+| 673 | Pangoro     | Daunting Pok‚mon      | #675   | Fighting Dark    |
+| 674 | Furfrou     | Poodle Pok‚mon        | #676   | Normal           |
+| 675 | Espurr      | Restraint Pok‚mon     | #677   | Psychic          |
+| 676 | Meowstic    | Constraint Pok‚mon    | #678   | Psychic          |
+| 677 | Honedge     | Sword Pok‚mon         | #679   | Steel Ghost      |
+| 678 | Doublade    | Sword Pok‚mon         | #680   | Steel Ghost      |
+| 679 | Aegislash   | Royal Sword Pok‚mon   | #681   | Steel Ghost      |
+| 680 | Spritzee    | Perfume Pok‚mon       | #682   | Fairy            |
+| 681 | Aromatisse  | Fragrance Pok‚mon     | #683   | Fairy            |
+| 682 | Swirlix     | Cotton Candy Pok‚mon  | #684   | Fairy            |
+| 683 | Slurpuff    | Meringue Pok‚mon      | #685   | Fairy            |
+| 684 | Inkay       | Revolving Pok‚mon     | #686   | Dark Psychic     |
+| 685 | Malamar     | Overturning Pok‚mon   | #687   | Dark Psychic     |
+| 686 | Binacle     | Two-Handed Pok‚mon    | #688   | Rock Water       |
+| 687 | Barbaracle  | Collective Pok‚mon    | #689   | Rock Water       |
+| 688 | Skrelp      | Mock Kelp Pok‚mon     | #690   | Poison Water     |
+| 689 | Dragalge    | Mock Kelp Pok‚mon     | #691   | Poison Dragon    |
+| 690 | Clauncher   | Water Gun Pok‚mon     | #692   | Water            |
+| 691 | Clawitzer   | Howitzer Pok‚mon      | #693   | Water            |
+| 692 | Helioptile  | Generator Pok‚mon     | #694   | Electric Normal  |
+| 693 | Heliolisk   | Generator Pok‚mon     | #695   | Electric Normal  |
+| 694 | Tyrunt      | Royal Heir Pok‚mon    | #696   | Rock Dragon      |
+| 695 | Tyrantrum   | Despot Pok‚mon        | #697   | Rock Dragon      |
+| 696 | Amaura      | Tundra Pok‚mon        | #698   | Rock Ice         |
+| 697 | Aurorus     | Tundra Pok‚mon        | #699   | Rock Ice         |
+| 698 | Sylveon     | Intertwining Pok‚mon  | #700   | Fairy            |
+| 699 | Hawlucha    | Wrestling Pok‚mon     | #701   | Fighting Flying  |
+| 700 | Dedenne     | Antenna Pok‚mon       | #702   | Electric Fairy   |
+| 701 | Carbink     | Jewel Pok‚mon         | #703   | Rock Fairy       |
+| 702 | Goomy       | Soft Tissue Pok‚mon   | #704   | Dragon           |
+| 703 | Sliggoo     | Soft Tissue Pok‚mon   | #705   | Dragon           |
+| 704 | Goodra      | Dragon Pok‚mon        | #706   | Dragon           |
+| 705 | Klefki      | Key Ring Pok‚mon      | #707   | Steel Fairy      |
+| 706 | Phantump    | Stump Pok‚mon         | #708   | Ghost Grass      |
+| 707 | Trevenant   | Elder Tree Pok‚mon    | #709   | Ghost Grass      |
+| 708 | Pumpkaboo   | Pumpkin Pok‚mon       | #710   | Ghost Grass      |
+| 709 | Gourgeist   | Pumpkin Pok‚mon       | #711   | Ghost Grass      |
+| 710 | Bergmite    | Ice Chunk Pok‚mon     | #712   | Ice              |
+| 711 | Avalugg     | Iceberg Pok‚mon       | #713   | Ice              |
+| 712 | Noibat      | Sound Wave Pok‚mon    | #714   | Flying Dragon    |
+| 713 | Noivern     | Sound Wave Pok‚mon    | #715   | Flying Dragon    |
+| 714 | Xerneas     | Life Pok‚mon          | #716   | Fairy            |
+| 715 | Yveltal     | Destruction Pok‚mon   | #717   | Dark Flying      |
+| 716 | Zygarde     | Order Pok‚mon         | #718   | Dragon Ground    |
+| 717 | Diancie     | Jewel Pok‚mon         | #719   | Rock Fairy       |
+| 718 | Hoopa       | Mischief Pok‚mon      | #720   | Psychic Ghost    |
+| 719 | Volcanion   | Steam Pok‚mon         | #721   | Fire Water       |
++-----+-------------+-----------------------+--------+------------------+
+719 rows in set (0.00 sec)
+
+MariaDB [pokedb]> exit;

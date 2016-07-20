@@ -1,17 +1,26 @@
+# -*- coding: utf-8 -*-
+
+# time it!
+import time
+start = time.time()
+
 from bs4 import BeautifulSoup as bs
 from urllib2 import urlopen as wget
 import MySQLdb as sql
-import sys
+import sys, re
+from pprint import pprint
 
+# setup
 URL = "http://bulbapedia.bulbagarden.net"
 db = sql.connect("localhost","root","Metroid","pokedb" )
 cursor = db.cursor()
+
 
 def initDB():
     """Initializes a fresh pokemon table in pokedb."""
     scripts = [
         "DROP TABLE pokemon;",
-        "CREATE TABLE pokemon( id serial, name CHAR(30) PRIMARY KEY, category CHAR(50), natdex CHAR(5), type CHAR(30));",
+        "CREATE TABLE pokemon(id serial, name CHAR(30), category CHAR(50), natdex CHAR(5) PRIMARY KEY, type CHAR(30));",
     ]
     
     for script in scripts:
@@ -19,6 +28,7 @@ def initDB():
         out = cursor.fetchone()
         if out:
             print out
+
 
 def populateList():
     '''first, we get the whole list of pokemon, sorted by national dex number.
@@ -53,45 +63,104 @@ def populateList():
 
     return pokemon
 
+
 def cullPokemonData(pokeTuple):
-    path = URL + pokeTuple[1]
-    page = wget(path)
-    soup = bs(page.read(), 'html.parser')
-    table = soup.find('table', {'class':'roundy', 'style': 'float:right; text-align:center; width:33%; max-width:420px; min-width:360px; background: #78C850; border: 2px solid #682A68; padding:2px;'})
+    '''Grabs data for a single pokemon.'''
+    path  = URL + pokeTuple[1]
+    page  = wget(path)
+    sys.stdout.write(".")
+    soup  = bs(page.read(), 'html.parser')
+    table = soup.find('table', {'class':'roundy'})
+    
+    # at this point, I have the right table. need to parse out the following values.
+    element  = table.find("td", {"width" : "50%"})
+    name     = element.big.big.b.contents[0]
+    if "Nidoran" in name:
+        name = name[:-1]
+    # print "name >>>", name # debug
 
-    # at this point, I have the right table. need to parse out the following values:
+    # to account for inline explain spans
+    if len(element.a.span.contents) > 1:
+        category = element.a.span.span.contents[0] + element.a.span.contents[1]
+    else:
+        category = element.a.span.contents[0]
+    category = re.sub("\xe9", "e", category)
+    # print "cat >>>", category # debug
+    
+    sys.stdout.write(".")
+    
+    element = table.find("th", {"width" : "25%", "class" : "roundy", "style" : "background:#FFF;"})
+    natdex  = element.big.big.a.span.contents[0]
+    # print "natdex >>>", natdex # debug
+    
+    _type = ""
+    element = table.find("td", {"class" : "roundy", "colspan" : "4"})
+    types = element.findAll("td")
+    if types[0].a.span.b is None:
+        element = table.find("td", {"class" : "roundy", "colspan" : "2"})
+    element = element.table.tr.td.table.tr
+    types = element.findAll("td")
+    for t in types:
+        if t.a.span.b.contents[0] != "Unknown":
+            _type += t.a.span.b.contents[0] + " "    
+    # print "type >>>", _type # debug
+    
+    sys.stdout.write(".")
+    script = 'INSERT INTO pokemon(name, category, natdex, type) VALUES ("%s", "%s", "%s", "%s")' % (name, category, natdex, _type)
+    try:
+        cursor.execute(script)
+        out = cursor.fetchone()
+        if out:
+            print out
+        db.commit()
+    except:
+       db.rollback()
 
-    name     = ""   # Bulbasaur
-    category = ""   # Seed Pokemon
-    natdex   = ""   # #001
-    _type    = ""   # Grass, Poison
 
-    # script = "INSERT INTO pokemon(name, category, natdex, type, region) VALUES ()"
-    # try:
-    #     cursor.execute(script)
-    #     out = cursor.fetchone()
-    #     if out:
-    #         print out
-    #     db.commit()
-    # except:
-    #     db.rollback()
+def viewDatabase():
+    '''Prints the data currently in the database.'''
+    dbstart = time.time()
+    cursor.execute("SELECT * FROM pokemon;")
+    print "Table 'pokemon':"
+    results = cursor.fetchall()
+    widths = []
+    columns = []
+    tavnit = '|'
+    separator = '+' 
+
+    for cd in cursor.description:
+        widths.append(max(cd[2], len(cd[0])))
+        columns.append(cd[0])
+
+    for w in widths:
+        tavnit += " %-"+"%ss |" % (w,)
+        separator += '-'*w + '--+'
+
+    print(separator)
+    print(tavnit % tuple(columns))
+    print(separator)
+    for row in results:
+        print(tavnit % row)
+    print(separator)
+    print str(len(results)) + " rows in set ({0:.2f} sec)".format(time.time()-dbstart)
 
 
 # ------ BEGIN ROUTINE -------
 sys.stdout.write("Initializing Database...")
 initDB()
-
 sys.stdout.write("done.\nGetting list of Pokemon (up to Gen6)...")
 pokedex = populateList()
-
 print "done.\nStarting Database Insertions."
-
-sys.stdout.write("Processing " + pokedex[0][0] + "...") # separate the first one for console output's sake
+sys.stdout.write("Processing " + pokedex[0][0]) # separate the first one for console output's sake
 cullPokemonData(pokedex[0])
-# for pokemon in pokedex[1:]:
-#     sys.stdout.write("done.\nProcessing " + pokemon[0] + "...")
-#     cullPokemonData(pokemon)
-
+for pokemon in pokedex[1:]:
+    sys.stdout.write("done.\nProcessing " + re.sub(u'\u2642', ' (Male)', re.sub(u'\u2640', ' (Female)', pokemon[0])))
+    cullPokemonData(pokemon)
 print "done.\nDatabase construction complete."
+viewDatabase()
 # cleanup
 db.close()
+last = 'Routine complete in {0:.2f} seconds.'.format(time.time()-start)
+for i in range(len(last)):
+    sys.stdout.write("=")
+print "\n" + last
