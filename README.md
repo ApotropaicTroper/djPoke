@@ -11,7 +11,7 @@ Install them.
 ## SQL Connector?
 Install it. It's necessary before you install mysql-python from pip.
 
-## The Scrubber Script
+## The Scraper Script
 Run it.
 
 ## Anything else?
