@@ -8,9 +8,10 @@ from urllib2 import urlopen as wget
 import MySQLdb as sql
 import sys, re
 from pprint import pprint
+from utils import dedupe, viewTable
 
 # setup
-URL = "http://pokemondb.net/pokedex"
+URL = "http://pokemondb.net"
 db = sql.connect("localhost","root","Metroid","pokedb" )
 cursor = db.cursor()
 
@@ -20,16 +21,33 @@ def initDB():
     scripts = [
         "DROP TABLE IF EXISTS pokemon;",
         """CREATE TABLE pokemon(
-            id              serial PRIMARY KEY,
-            name            CHAR(30),
-            natdex          CHAR(5),
-            hp              INT,
-            attack          INT,
-            defense         INT,
-            special_attack  INT,
-            special_defense INT,
-            speed           INT,
-            url             TEXT
+            id                serial PRIMARY KEY,   # to preserve uniqueness. there are duplicate entries for netdex.
+            name              CHAR(30),
+            natdex            CHAR(5),
+            hp                INT,        # baseline stats ---
+            attack            INT,        #                 |
+            defense           INT,        #                 |
+            special_attack    INT,        #                 |
+            special_defense   INT,        #                 |
+            speed             INT,        #                ---
+            url               TEXT,
+            type              CHAR(20),
+            category          CHAR(40),
+            height            CHAR(20),   # format: us (metric)
+            weight            CHAR(20),   # format: us (metric)
+            abilities         CHAR(40),   # space-delimited list
+            dex_locales       TEXT,       # python dictionary of region : value
+            name_japanese     CHAR(40),
+            ev_yield          TEXT,
+            catch_rate        TEXT,       # value, (aside)
+            base_happiness    TEXT,       # value, (aside)
+            base_xp           INT,
+            leveling_rate     CHAR(30),
+            egg_groups        CHAR(30),   # space-delimited list
+            gender_ratio      CHAR(30),   # comma-delimited list
+            hatch_rate        CHAR(25),   # format: rate (min steps)
+            type_defenses     TEXT,       # python diction of type : effectiveness
+            version_dex_descs TEXT        # python diction of (version) : entry
         );""",
     ]
     
@@ -44,7 +62,7 @@ def populateList():
     '''first, we get the whole list of pokemon, including national pokedex numbers, baseline stats, and
     the associated URLs. inserts those values into the database.
     '''
-    path = URL + "/all"
+    path = URL + "/pokedex/all"
     page = wget(path)
     soup = bs(page.read(), 'html.parser')
     table = soup.find("table", {"id" : "pokedex"})
@@ -115,42 +133,28 @@ def populateList():
             db.commit()
         except:
            db.rollback()
+    return urls
 
-def viewTable(table):
-    '''Prints the data currently in the database.'''
-    dbstart = time.time()
-    cursor.execute("SELECT * FROM %s;" % table) 
-    print "Table '%s':" % table
-    results = cursor.fetchall()
-    if not results:
-        print "Empty set ({0:.2f} sec)".format(time.time()-dbstart)
-        return
-    widths = []
-    columns = []
-    tavnit = '|'
-    separator = '+' 
-    for cd in cursor.description:
-        widths.append(max(cd[2], len(cd[0])))
-        columns.append(cd[0])
-    for w in widths:
-        tavnit += " %-"+"%ss |" % (w,)
-        separator += '-'*w + '--+'
-    print(separator)
-    print(tavnit % tuple(columns))
-    print(separator)
-    for row in results:
-        print(tavnit % row)
-    print(separator)
-    print str(len(results)) + " rows in set ({0:.2f} sec)".format(time.time()-dbstart)
-
+def cullPokemonData(url):
+    '''Grabs data for a specific pokemon to append to the table.'''
+    path = URL + url
+    page = wget(path)
+    soup = bs(page.read(), 'html.parser')
 
 # ------ BEGIN ROUTINE -------
-# sys.stdout.write("Initializing Database...")
+sys.stdout.write("Initializing Database...")
 initDB()
-# sys.stdout.write("done.\nGetting list of Pokemon (up to Gen6)...")
-populateList()
-viewTable('pokemon')
+sys.stdout.write("done.\nGetting list of Pokemon (up to Gen6)...")
+urls = populateList()
+print "done.\nGetting the rest of the Pokemon data..."
+urls = dedupe(urls)
+for url in urls:
+    print ">>> processing", url[9:]
+    cullPokemonData(url)
+    break
+# viewTable(cursor, 'pokemon')
 db.close()
+
 last = 'Routine complete in {0:.2f} seconds.'.format(time.time()-start)
 for i in range(len(last)):
     sys.stdout.write("=")
