@@ -207,3 +207,22 @@ finally:
     rt.stop() # better in a try/finally block to make sure the program ends!
 """
 
+# data to grab next:
+#     abilities
+#     gender ratio
+#     catch rate
+#     egg groups
+#     hatch time
+#     height (us customary)
+#     height (metric)
+#     weight (us customary)
+#     weight (metric)
+#     regional pokedex numbers
+#     base experience yeild
+#     levelling rate
+#     ev yield
+#     body style
+#     foot print
+#     image
+#     pokedex color
+#     base friendship
