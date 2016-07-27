@@ -8,13 +8,13 @@ Leland Sperl
 
 import time # imported here so that the execution time measurements don't include the import execution
 
-def viewTable(cursor, table):
+def viewTable(cursor, table, cols):
     '''Prints data currently in the local database instance, given a cursor.
     Output looks exactly like the mysql function "select * from table;".
     http://stackoverflow.com/questions/10865483/print-results-in-mysql-format-with-python
     '''
     dbstart = time.time()
-    cursor.execute("SELECT * FROM %s;" % table) 
+    cursor.execute("SELECT %s FROM %s;" % (cols, table))
     print "Table '%s':" % table
     results = cursor.fetchall()
     if not results:
